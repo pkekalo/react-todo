@@ -15,10 +15,6 @@ function App() {
   const addTodo = (title) => {
     setNewTodo(title);
     
-    // setTodos(previousState => {
-    //   return [...previousState, { id: previousState.length + 1, title }];
-    // })
-    
     setTodos([...todos, { id: todos.length + 1, title }]);
   };
 

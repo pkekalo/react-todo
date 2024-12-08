@@ -14,12 +14,13 @@ function AddTodoForm({ onAddTodo }) {
     
     return (
         <form onSubmit={handleAddTodo}>
-            <label htmlFor="todoTitle">Title {title}</label>
+            <label htmlFor="todoTitle">Title</label>
             <input
                 type="text"
                 id="todoTitle"
                 name="title"
                 value={title}
+                required
                 onChange={(e) => {
                     setTitle(e.target.value)} 
                 }
