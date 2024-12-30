@@ -1,27 +1,14 @@
 import TodoListItem from './TodoListItem';
 
-function TodoList({todos}) {
-    // const todoList = [
-    //     {
-    //       id: 1,
-    //       title: 'Breakfast'
-    //     },
-    //     {
-    //       id: 2,
-    //       title: 'Shower'
-    //     },
-    //     {
-    //       id: 3,
-    //       title: 'Drive'
-    //     }
-    //   ];
-    
+function TodoList({ todoList }) {
     return (
-        <ul>
-            {todos.map((item) => (
-                <TodoListItem key={item.id} item={item} />
-            ))}
-        </ul>
+        <>
+            <ul>
+                {todoList.map((item) => (
+                    <TodoListItem key={item.id} item={item} />
+                ))}
+            </ul>
+        </>
     );
 }
 
