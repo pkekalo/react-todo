@@ -12,7 +12,6 @@ function AddTodoForm({ onAddTodo }) {
         event.preventDefault(); // Prevent form from refreshing the page
         const newTodo = { title: todoTitle, id: Date.now() }; // Create the new todo object
         onAddTodo(newTodo); // Pass the todoTitle state to the parent
-        console.log(`New Todo - ID: ${newTodo.id}, Title: ${newTodo.title}`); // Log the value to the console
         setTodoTitle('');
     };
 
