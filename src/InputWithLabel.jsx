@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
-const InputWithLabel = ({value, onChange}) => {
+
+
+const InputWithLabel = ({value, onChange, children}) => {
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+        inputRef.current.focus(); 
+    });
+
     return (
         <>
-            <label htmlFor="todoTitle">Title </label>
+            <label htmlFor="todoTitle">{children}</label>
             <input
                 type="text"
                 id="todoTitle"
@@ -11,6 +19,7 @@ const InputWithLabel = ({value, onChange}) => {
                 value={value}
                 required
                 onChange={onChange}
+                ref={inputRef} 
             />
         </>
     );
