@@ -8,26 +8,38 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = () => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({ data: { todoList: [{ id: 1, text: 'Example Todo' }] } });
-        }, 2000); // 2 seconds wait
-      });
+    const fetchData = async () => {
+      const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}`;
+      const options = {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
+        },
+      };
+  
+      try {
+        const response = await fetch(url, options);
+  
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status}`);
+        }
+  
+        const data = await response.json();
+        const todos = data.records.map((todo) => ({
+          id: todo.id,
+          title: todo.fields.title,
+        }));
+  
+        setTodoList(todos);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
     };
-
-    fetchData().then((result) => {
-      setTodoList(result.data.todoList);
-      setIsLoading(false); 
-    });
+  
+    fetchData();
   }, []);
-
-  useEffect(() => {
-    if(!isLoading) {
-      localStorage.setItem("savedTodoList", JSON.stringify(todoList)); 
-    }
-    
-  }, [todoList, isLoading]);
+  
 
   const addTodo = (newTodo) => {
     setTodoList([...todoList, newTodo]); 
