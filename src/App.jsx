@@ -4,15 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
-  const [todoList, setTodoList] = useState(() => {
-    const savedTodos = localStorage.getItem("savedTodoList"); // Load saved todos
-    return savedTodos ? JSON.parse(savedTodos) : []; // Default to empty array
-  });
+  const [todoList, setTodoList] = useState([]);
 
-  const [isLoading, setIsLoading] = useState(todoList.length === 0); // Only load if empty
+  const [isLoading, setIsLoading] = useState(true); //start loading when the page is opened
 
   useEffect(() => {
-    if (!isLoading) return; // Skip if already loaded
 
     const fetchData = async () => {
       const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}`;
@@ -39,13 +35,7 @@ function App() {
     };
 
     fetchData();
-  }, [isLoading]); // Only runs if still loading
-
-  useEffect(() => {
-    if (!isLoading) {
-      localStorage.setItem("savedTodoList", JSON.stringify(todoList)); // Save todos
-    }
-  }, [todoList, isLoading]); // Runs when todos update
+  }, []); 
 
   const addTodo = (newTodo) => {
     setTodoList([...todoList, newTodo]);
