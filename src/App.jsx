@@ -46,15 +46,8 @@ function App() {
   };
 
   return (
-<<<<<<< HEAD
-    <>
     <BrowserRouter>
       <Routes>
-        {/* Default route for the Todo List */}
-=======
-    <BrowserRouter>
-      <Routes>
->>>>>>> week_10
         <Route
           path="/"
           element={
@@ -71,23 +64,9 @@ function App() {
             </>
           }
         />
-<<<<<<< HEAD
-
-        {/* New route for "New Todo List" */}
-        <Route
-          path="/new"
-          element={
-            <h1>New Todo List</h1>
-          }
-        />
-        </Routes>
-      </BrowserRouter>
-    </>
-=======
         <Route path="/new" element={<h1>New Todo List</h1>} />
       </Routes>
     </BrowserRouter>
->>>>>>> week_10
   );
 }
 
