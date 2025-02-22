@@ -1,5 +1,5 @@
 body {
-    background-color: #add8e6;
+    background: radial-gradient(circle, #d6ecff, #90caf9, #42a5f5);
     color: black;
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
@@ -16,10 +16,20 @@ input {
     border: 2px solid #0077b6;
     border-radius: 6px;
     font-size: 16px;
+    margin-right: 15px;
     margin-bottom: 15px;
     outline: none;
     transition: all 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+#root {
+    border: 3px solid black; /* Black solid border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Adds space inside */
+    margin: 20px auto; /* Centers it */
+    width: fit-content; /* Adjusts width to content */
+    background-color: rgba(255, 255, 255, 0.8); /* Adds a slight background */
 }
 
 /* Input Focus Effect */
@@ -55,15 +65,16 @@ label {
     }
 
     input {
-        width: 100%; 
+        width: 50%; 
     }
 
     button {
-        width: 60%;
+        width: 30%;
         padding: 12px;
     }
 
     h1 {
         font-size: 32px;
     }
+
 }
