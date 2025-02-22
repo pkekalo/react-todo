@@ -11,7 +11,7 @@ function AddTodoForm({ onAddTodo }) {
 
     const handleAddTodo = (event) => {
         event.preventDefault(); // Prevent form from refreshing the page
-        const newTodo = { title: todoTitle, id: Date.now() }; // Create the new todo object
+        const newTodo = { title: todoTitle, id: String(Date.now()) }; // Create the new todo object
         onAddTodo(newTodo); // Pass the todoTitle state to the parent
         setTodoTitle('');
     };
@@ -20,6 +20,7 @@ function AddTodoForm({ onAddTodo }) {
     return (
         <form onSubmit={handleAddTodo}>
             <InputWithLabel 
+                id="todoTitle"
                 value={todoTitle}
                 onChange={handleTitleChange}
             >
@@ -32,3 +33,9 @@ function AddTodoForm({ onAddTodo }) {
 
 
 export default AddTodoForm;
+
+import PropTypes from 'prop-types';
+
+AddTodoForm.propTypes = {
+    onAddTodo: PropTypes.func.isRequired
+};
