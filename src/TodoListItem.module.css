@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.ListItem {
+    color: darkblue;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 320px;
+    border: 1px solid #ccc;
+    transition: transform 0.2s ease-in-out; /* Add hover effect */
+}
+
+/* Hover effect for list items */
+.ListItem:hover {
+    transform: scale(1.02); /* Slight zoom */
+}
+
+button {
+    background-color: #8d462c;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease, transform 0.2s ease-in-out;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #cc0000;
+    transform: scale(1.05); /* Slight button scale effect */
+}
+
+/* Button Active Effect */
+button:active {
+    transform: scale(0.95); /* Shrinks slightly when clicked */
+}
+
+

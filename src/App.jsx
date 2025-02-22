@@ -2,6 +2,8 @@ import AddTodoForm from './AddTodoForm';
 import TodoList from './TodoList';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import style from "./App.module.css"
+
 
 function App() {
   const [todoList, setTodoList] = useState([]);
@@ -52,7 +54,7 @@ function App() {
           path="/"
           element={
             <>
-              <h1>Todo List</h1>
+              <h1 className={style.heading}>Todo List</h1>
               {isLoading ? (
                 <p>Loading...</p>
               ) : (
