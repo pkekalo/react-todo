@@ -5,18 +5,16 @@ function AddTodoForm({ onAddTodo }) {
     const [todoTitle, setTodoTitle] = useState('');
 
     const handleTitleChange = (event) => {
-        const newTodoTitle = event.target.value; // Retrieve input value
-        setTodoTitle(newTodoTitle); // Update state
+        setTodoTitle(event.target.value);
     };
 
     const handleAddTodo = (event) => {
-        event.preventDefault(); // Prevent form from refreshing the page
-        const newTodo = { title: todoTitle, id: String(Date.now()) }; // Create the new todo object
-        onAddTodo(newTodo); // Pass the todoTitle state to the parent
+        event.preventDefault();
+        if (!todoTitle.trim()) return; // Checking, so we don't add nothing empty 
+        onAddTodo({ title: todoTitle }); // Passing only title, Airtable creates ID
         setTodoTitle('');
     };
 
-    
     return (
         <form onSubmit={handleAddTodo}>
             <InputWithLabel 
@@ -30,7 +28,6 @@ function AddTodoForm({ onAddTodo }) {
         </form>
     );
 }
-
 
 export default AddTodoForm;
 
